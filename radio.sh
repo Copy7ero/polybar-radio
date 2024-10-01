@@ -11,9 +11,9 @@ PAUSE_ICON=""    # Иконка паузы (Nerd Font)
 
 # Список радиостанций: URL и названия
 STATIONS=(
-    "http://your-first-radio-url Radio One"
-    "http://your-second-radio-url Radio Two"
-    "http://your-third-radio-url Radio Three"
+    "http://stream-url.com|Station Name"
+    "http://stream-url.com|Station Name"
+    "http://stream-url.com|Station Name"
 )
 
 # Получаем количество станций
