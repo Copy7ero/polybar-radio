@@ -35,9 +35,7 @@ A custom Polybar module for listening to multiple online radio stations with eas
 2. **Configure the stations**:
    - Edit the `radio_stations` array in the `radio_module.sh` script to add your favorite radio stations. The format is:
      ```bash
-    "http://your-first-radio-url Radio One"
-    "http://your-second-radio-url Radio Two"
-    "http://your-third-radio-url Radio Three"
+     "http://stream-url.com|Station Name"
      ```
 
 3. **Add the module to your Polybar config**:
