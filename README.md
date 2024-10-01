@@ -29,7 +29,7 @@ A custom Polybar module for listening to multiple online radio stations with eas
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/Copy7ero/polybar-radio.git
-   cd radio-polybar-module
+   cd polybar-radio
    ```
 
 2. **Configure the stations**:
