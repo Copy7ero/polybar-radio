@@ -8,12 +8,13 @@ TRACK_INFO_FILE="/tmp/radio_track_info.txt"
 # Иконки для управления
 PLAY_ICON=""     # Иконка воспроизведения (Nerd Font)
 PAUSE_ICON=""    # Иконка паузы (Nerd Font)
+STOP_ICON=""     # Иконка для полной остановки
 
 # Список радиостанций: URL и названия
 STATIONS=(
-    "http://stream-url.com|Station Name"
-    "http://stream-url.com|Station Name"
-    "http://stream-url.com|Station Name"
+    "http://online-1.gkvr.ru:8000/s2.aac Авторадио"
+    "http://radio.flex.ru:8000/radionami Anime RU"
+    "https://pool.anison.fm:9000/AniSonFM(320) Anison"
 )
 
 # Получаем количество станций
@@ -56,8 +57,8 @@ update_info() {
         play_pause_icon="$PLAY_ICON"
     fi
 
-    # Вывод для Polybar: предыдущая станция, воспроизведение/пауза, следующая станция и название
-    echo "%{A1:$0 toggle:}$play_pause_icon%{A} $station_name"
+    # Вывод для Polybar: предыдущая станция, воспроизведение/пауза, следующая станция, полная остановка и название
+    echo "%{A1:$0 stop:}$STOP_ICON%{A} %{A1:$0 toggle:}$play_pause_icon%{A} $station_name"
 }
 
 # Функция для переключения на следующую радиостанцию
@@ -94,6 +95,11 @@ stop_radio() {
     pkill -f "$MPV_SOCKET"
 }
 
+# Функция для полного выхода из MPV
+quit_radio() {
+    pkill -f "$MPV_SOCKET"  # Полное завершение MPV
+}
+
 # Функция для записи трека в файл
 log_track() {
     local current_track=$(echo "$(date): $(get_current_station | cut -d' ' -f2-)")
@@ -114,6 +120,9 @@ case "$1" in
         else
             start_radio
         fi
+        ;;
+    stop)
+        quit_radio  # Добавлено для полной остановки MPV
         ;;
     log)
         log_track
