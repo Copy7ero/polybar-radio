@@ -12,9 +12,9 @@ STOP_ICON=""     # Иконка для полной остановки
 
 # Список радиостанций: URL и названия
 STATIONS=(
-    "http://online-1.gkvr.ru:8000/s2.aac Авторадио"
-    "http://radio.flex.ru:8000/radionami Anime RU"
-    "https://pool.anison.fm:9000/AniSonFM(320) Anison"
+    "http://stream-url.com|Station Name"
+    "http://stream-url.com|Station Name"
+    "http://stream-url.com|Station Name"
 )
 
 # Получаем количество станций
